@@ -30,26 +30,18 @@ const Value = styled.div`
   }
 `;
 
-const Footer = () => {
+const Footer = ({list}) => {
   return (
     <footer>
       <FooterList>
-        <li>
-          <Label>Ветер</Label>
-          <Value>5 м/c, западный</Value>
-        </li>
-        <li>
-          <Label>Давление</Label>
-          <Value>752 мм рт. ст.</Value>
-        </li>
-        <li>
-          <Label>Влажность</Label>
-          <Value>60%</Value>
-        </li>
-        <li>
-          <Label>Вероятность дождя</Label>
-          <Value>10%</Value>
-        </li>
+        {
+          list.map(({label, value}) => {
+            return <li key={label}>
+              <Label>{label}</Label>
+              <Value>{value}</Value>
+            </li>
+          })
+        }
       </FooterList>
     </footer>
   );

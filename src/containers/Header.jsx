@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import locationSVG from '../img/icons/location.svg';
+import locationSVG from "../img/icons/location.svg";
 
 import Button from "containers/Button";
 import TextInput from "./Input";
@@ -47,7 +47,11 @@ const UnitForm = styled.form`
 
 const UnitInput = styled.input`
   appearance: none;
-`
+  &:checked + label {
+    background-color: #ffffff20;
+    opacity: 100%;
+  }
+`;
 
 const UnitLabel = styled.label`
   font-size: 18px;
@@ -55,28 +59,50 @@ const UnitLabel = styled.label`
   color: #ffffff;
   opacity: 50%;
   padding: 3px 15px;
+  cursor: pointer;
 `;
 
-const Header = () => {
+const Header = ({
+  name = "",
+  currentWeather,
+  changeSearchPanelStatus,
+  status,
+  handleSubmit,
+  unitChange,
+}) => {
   return (
     <header>
       <FirstLine>
-        {/* <City>Омск</City> */}
-        <TextInput />
+        {status ? (
+          <TextInput handleSubmit={handleSubmit} />
+        ) : (
+          <City>{name}</City>
+        )}
         <UnitWrapper>
-          <UnitForm>
-            <UnitLabel>
-              C<UnitInput name="unit-switcher" type="radio"></UnitInput>
-            </UnitLabel>
-            <UnitLabel>
-              F<UnitInput name="unit-switcher" type="radio"></UnitInput>
-            </UnitLabel>
+          <UnitForm onChange={unitChange}>
+            <UnitInput
+              name="unit-switcher"
+              type="radio"
+              value="celsius"
+              id="unitC"
+              defaultChecked
+            ></UnitInput>
+            <UnitLabel htmlFor="unitC">C</UnitLabel>
+            <UnitInput
+              name="unit-switcher"
+              type="radio"
+              value="fahrenheit"
+              id="unitF"
+            ></UnitInput>
+            <UnitLabel htmlFor="unitF">F</UnitLabel>
           </UnitForm>
         </UnitWrapper>
       </FirstLine>
       <div>
-        <Button>Сменить город</Button>
-        <Button icon={locationSVG}>Мое местоположение</Button>
+        <Button onClick={changeSearchPanelStatus}>Сменить город</Button>
+        <Button onClick={currentWeather} icon={locationSVG}>
+          Мое местоположение
+        </Button>
       </div>
     </header>
   );

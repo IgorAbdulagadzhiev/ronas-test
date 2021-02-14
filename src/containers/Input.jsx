@@ -46,9 +46,9 @@ const Button = styled.button`
 
 const TextInput = ({textButton = 'OK', handleSubmit ,...props}) => {
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Input type="text" autoFocus {...props} />
-      <Button onSubmit={handleSubmit} type="submit">
+      <Button type="submit">
         {textButton}
       </Button>
     </Form>

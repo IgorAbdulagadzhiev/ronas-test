@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Sun from "img/sun.png";
 
 const Main = styled.main`
   display: flex;
@@ -41,16 +40,16 @@ const ValueDescription = styled.span`
 
 `
 
-const Body = () => {
+const Body = ({temp = '', description = '', icon}) => {
   return (
     <Main>
       <ValueContainer>
-        <ValueIcon src={Sun} />
+        <ValueIcon src={icon} />
         <span>
-          19<span>º</span>
+          {temp}<span>º</span>
         </span>
       </ValueContainer>
-      <ValueDescription>Преимущественно солнечно</ValueDescription>
+      <ValueDescription>{description}</ValueDescription>
     </Main>
   );
 };
