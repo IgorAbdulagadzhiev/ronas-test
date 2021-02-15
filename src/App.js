@@ -1,8 +1,8 @@
 import MainWrapper from "components/MainWrapper";
-import MainPage from 'page/MainPage';
+import MainPage from "page/MainPage";
 
-import GlobalFonts from './fonts/fonts';
-import GlobalStyles from './globalStyles';
+import GlobalFonts from "./fonts/fonts";
+import GlobalStyles from "./globalStyles";
 
 function App() {
   return (

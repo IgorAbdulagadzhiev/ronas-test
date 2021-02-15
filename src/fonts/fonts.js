@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import Lato from './Lato-Regular.ttf';
+import Lato from "./Lato-Regular.ttf";
 
 export default createGlobalStyle`
     @font-face {

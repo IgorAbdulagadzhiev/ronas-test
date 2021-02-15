@@ -10,16 +10,21 @@ const initialState = {
   searchPanelOpen: false,
   unitType: "celsius",
   loading: false,
-  error: false
+  error: false,
 };
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_WEATHER: {
-      return { ...state, loading: true }
+      return { ...state, loading: true };
     }
     case isLoaded(GET_WEATHER, true): {
-      return { ...state, data: payload, searchPanelOpen: false, loading: false };
+      return {
+        ...state,
+        data: payload,
+        searchPanelOpen: false,
+        loading: false,
+      };
     }
     case isLoaded(GET_WEATHER, false): {
       return { ...state, error: payload, loading: false };

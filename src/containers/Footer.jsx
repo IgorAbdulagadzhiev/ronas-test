@@ -30,18 +30,18 @@ const Value = styled.div`
   }
 `;
 
-const Footer = ({list}) => {
+const Footer = ({ list }) => {
   return (
     <footer>
       <FooterList>
-        {
-          list.map(({label, value}) => {
-            return <li key={label}>
+        {list.map(({ label, value }) => {
+          return (
+            <li key={label}>
               <Label>{label}</Label>
               <Value>{value}</Value>
             </li>
-          })
-        }
+          );
+        })}
       </FooterList>
     </footer>
   );

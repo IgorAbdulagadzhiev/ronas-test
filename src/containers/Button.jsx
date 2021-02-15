@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -14,7 +14,9 @@ const StyledButton = styled.button`
   &:last-child {
     margin-right: 0;
   }
-  ${({ icon }) => icon && `
+  ${({ icon }) =>
+    icon &&
+    `
     padding-left: 25px;
     position: relative;
     &::before {
@@ -36,12 +38,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({children, ...props}) => {
-  return (
-    <StyledButton { ...props }>
-      {children}
-    </StyledButton>
-  )
-}
+const Button = ({ children, ...props }) => {
+  return <StyledButton {...props}>{children}</StyledButton>;
+};
 
 export default Button;

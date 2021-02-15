@@ -18,9 +18,9 @@ const Input = styled.input`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   color: #000000;
   @media screen and (max-width: 900px) {
-		width: 100%;
+    width: 100%;
     padding: 20px 10px;
-	}
+  }
 `;
 
 const Button = styled.button`
@@ -39,18 +39,16 @@ const Button = styled.button`
     background-color: rgb(212, 212, 212);
   }
   @media screen and (max-width: 900px) {
-		font-size: 15px;
+    font-size: 15px;
     line-height: 18px;
-	}
+  }
 `;
 
-const TextInput = ({textButton = 'OK', handleSubmit ,...props}) => {
+const TextInput = ({ textButton = "OK", handleSubmit, ...props }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Input type="text" autoFocus {...props} />
-      <Button type="submit">
-        {textButton}
-      </Button>
+      <Button type="submit">{textButton}</Button>
     </Form>
   );
 };

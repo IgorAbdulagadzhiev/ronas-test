@@ -5,7 +5,11 @@ import Body from "containers/Body";
 import Container from "containers/Container";
 import Footer from "containers/Footer";
 import Header from "containers/Header";
-import { getWeather, changeSearchPanelActive, changeUnit } from "actions/weather";
+import {
+  getWeather,
+  changeSearchPanelActive,
+  changeUnit,
+} from "actions/weather";
 import createDerailsList from "helpers/createDetailsList";
 import getIcon from "helpers/getIcon";
 
@@ -19,9 +23,10 @@ const MainPage = () => {
   const status = weatherData.searchPanelOpen;
 
   const unitType = weatherData.unitType;
-  const temp = unitType === 'celsius' ?
-  Math.round(weatherData?.data?.main?.temp) :
-  Math.round(weatherData?.data?.main?.temp * 1.8 + 32);
+  const temp =
+    unitType === "celsius"
+      ? Math.round(weatherData?.data?.main?.temp)
+      : Math.round(weatherData?.data?.main?.temp * 1.8 + 32);
 
   const currentWeather = () => {
     dispatch(getWeather());
@@ -34,28 +39,25 @@ const MainPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(getWeather(event.target[0].value));
-  }
+  };
 
   const handlerUnitChange = (event) => {
     dispatch(changeUnit(event.target.value));
-  }
+  };
 
   useEffect(() => {
     currentWeather();
   }, []);
 
-  if(weatherData.loading) {
-    return (
-      <div>loading</div>
-    )
+  if (weatherData.loading) {
+    return <div>loading</div>;
   }
 
-  if(weatherData.error) {
-    return (
-      <div>error</div>
-    )
+  if (weatherData.error) {
+    return <div>error</div>;
   }
 
+  // сюда бы еще прикрутил роутер, привязав его к поиску города, чтобы по ссылке можно было нужный город открыть.
   return (
     <Container padding="75px 100px 122px 100px">
       <Header
