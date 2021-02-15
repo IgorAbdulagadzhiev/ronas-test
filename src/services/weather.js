@@ -5,25 +5,20 @@ const lang = "RU";
 const ip = "http://ip-api.com/json/?lang=ru";
 
 export const getWeather = async (cityName) => {
-
   const fetchWeather = async (cityName) => {
     const res = await fetch(
       `${apiBase}weather?q=${cityName}&units=${units}&lang=${lang}&appid=${key}`
     );
 
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${cityName} , received ${res.status}`);
-    }
     return await res.json();
-  }
+  };
 
-  if(!!cityName) {
-    return fetchWeather(cityName)
+  if (!!cityName) {
+    return fetchWeather(cityName);
   } else {
     const ip = await getIP();
     return fetchWeather(ip.city);
   }
-
 };
 
 export const getIP = async () => {
@@ -34,4 +29,4 @@ export const getIP = async () => {
   }
 
   return await res.json();
-}
+};

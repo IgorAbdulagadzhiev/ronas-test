@@ -24,7 +24,7 @@ export default (main) => {
       icon = Cloud;
       break;
     default:
-      icon = Sun;
+      icon = null;
   }
   return icon;
 }

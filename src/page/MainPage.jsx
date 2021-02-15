@@ -44,6 +44,18 @@ const MainPage = () => {
     currentWeather();
   }, []);
 
+  if(weatherData.loading) {
+    return (
+      <div>loading</div>
+    )
+  }
+
+  if(weatherData.error) {
+    return (
+      <div>error</div>
+    )
+  }
+
   return (
     <Container padding="75px 100px 122px 100px">
       <Header
